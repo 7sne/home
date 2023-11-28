@@ -23,7 +23,7 @@ posts.sort((a, b) => {
 
 <BaseLayout title="7sne" description="7sne personal page.">
   <div slot="header-content" class="flex items-center gap-x-2">
-    <p class="font-serif tracking-tight">Maciej Kukielka</p>
+    <p class="text-lg">sane</p>
   </div>
 
   <main class="py-10">
@@ -34,87 +34,96 @@ posts.sort((a, b) => {
         experiences.
       </Paragraph>
     </section>
-
-    <section>
-      <Paragraph class="mb-1">Projects</Paragraph>
-      <ul class="flex w-full flex-col gap-y-4">
-        {
-          projects.map(({ title, url }) => {
-            return (
-              <li>
-                <Link
-                  href={url}
-                  class="flex flex-row justify-between gap-2"
-                  noUnderline
-                >
-                  <h2 class="font-sans text-gray-800 dark:text-gray-300">
-                    {title}
-                  </h2>
-                </Link>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
   </main>
 
-  <Paragraph class="mb-1 pt-12">Writing</Paragraph>
-  <ul>
-    {
-      posts.map(({ frontmatter }) => {
-        const date = new Date(frontmatter.date);
-
-        return (
-          <li>
-            <Link
-              href={frontmatter.path}
-              class="flex flex-row justify-between gap-2"
-              noUnderline
-            >
-              <h2 class="font-sans text-gray-800 dark:text-gray-300">
-                {frontmatter.title}
-              </h2>
-              <time
-                datetime={date.toISOString()}
-                class="shrink-0 tabular-nums tracking-tighter text-gray-600 dark:text-gray-400"
+  <section>
+    <Paragraph class="mb-1 text-gray-400 dark:text-gray-700">
+      Projects
+    </Paragraph>
+    <ul class="flex w-full flex-col gap-y-4">
+      {
+        projects.map(({ title, url }) => {
+          return (
+            <li>
+              <Link
+                href={url}
+                class="flex flex-row justify-between gap-2"
+                noUnderline
               >
-                {formatDate(date)}
-              </time>
-            </Link>
-          </li>
-        );
-      })
-    }
-  </ul>
+                <h2 class="font-sans text-gray-800 dark:text-gray-300">
+                  {title}
+                </h2>
+              </Link>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
 
-  <Paragraph class="mb-1 pt-24">Socials</Paragraph>
-  <ul id="socials" class="mt-3 flex w-full gap-x-4">
-    <li>
-      <Link
-        href="https://twitter.com/KukielkaMaciej"
-        class="cursor-pointer underline dark:underline-offset-4"
-      >
-        X
-      </Link>
-    </li>
-    <li>
-      <Link
-        href="https://github.com/7sne"
-        class="cursor-pointer underline dark:underline-offset-4"
-      >
-        Github
-      </Link>
-    </li>
-    <li>
-      <Link
-        href="https://www.linkedin.com/in/maciej-kukielka/"
-        class="cursor-pointer underline dark:underline-offset-4"
-      >
-        LinkedIn
-      </Link>
-    </li>
-  </ul>
+  <section>
+    <Paragraph class="mb-1 pt-12 text-gray-400 dark:text-gray-700">
+      Writing
+    </Paragraph>
+    <ul>
+      {
+        posts.map(({ frontmatter }) => {
+          const date = new Date(frontmatter.date);
+
+          return (
+            <li>
+              <Link
+                href={frontmatter.path}
+                class="flex flex-row justify-between gap-2"
+                noUnderline
+              >
+                <h2 class="font-sans text-gray-800 dark:text-gray-300">
+                  {frontmatter.title}
+                </h2>
+                <time
+                  datetime={date.toISOString()}
+                  class="shrink-0 tabular-nums tracking-tighter text-gray-600 dark:text-gray-400"
+                >
+                  {formatDate(date)}
+                </time>
+              </Link>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+  <section>
+    <Paragraph class="mb-1 pt-12 text-gray-400 dark:text-gray-700">
+      Socials
+    </Paragraph>
+    <ul id="socials" class="mt-3 flex w-full gap-x-4">
+      <li>
+        <Link
+          href="https://twitter.com/KukielkaMaciej"
+          class="cursor-pointer underline dark:underline-offset-4"
+        >
+          X
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="https://github.com/7sne"
+          class="cursor-pointer underline dark:underline-offset-4"
+        >
+          Github
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="https://www.linkedin.com/in/maciej-kukielka/"
+          class="cursor-pointer underline dark:underline-offset-4"
+        >
+          LinkedIn
+        </Link>
+      </li>
+    </ul>
+  </section>
 </BaseLayout>
 
 <style>
