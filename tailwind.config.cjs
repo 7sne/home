@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [
-        "Inter",
+        "Satoshi",
         "ui-sans-serif",
         "system-ui",
         "-apple-system",

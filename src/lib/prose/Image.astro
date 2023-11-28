@@ -32,7 +32,7 @@ const PUBLIC_IMAGES_PREFIX = "/content/";
 
 // No image needs to be wider than this.
 // TODO: Support High DPI screens by ensuring Astro emits images 2x of that.
-const WIDE_CONTAINER_WIDTH = 774;
+const WIDE_CONTAINER_WIDTH = 741;
 
 interface LocalProps extends LocalImageProps {
   aspectRatio?: number | string;
@@ -48,6 +48,7 @@ let width = props.width;
 let height = props.height;
 
 let src = await props.src;
+console.log("here", { src });
 if (typeof src === "object") {
   if ("default" in src) src = src.default;
   if ("src" in src) {
@@ -154,7 +155,7 @@ if (!isRaw) {
 <span
   zaduma-image
   class:list={[
-    "zaduma-image-box relative block overflow-hidden",
+    "zaduma-image-box relative block w-full overflow-hidden",
     !placeholder &&
       "bg-current/10 !inline-flex w-[var(--wide-content-width)] justify-center [&>img]:h-full [&>img]:object-contain",
   ]}
